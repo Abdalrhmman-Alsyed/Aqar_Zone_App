@@ -1,5 +1,3 @@
-
-
 import 'package:aqar_zone_application/view/screen/Auth/splash_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +6,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   runApp(EasyLocalization(
-      supportedLocales: [ Locale('ar', ''), Locale('en', '')],
-      path:"assets/lang",
+      supportedLocales: [Locale('ar', ''), Locale('en', '')],
+      path: "assets/lang",
       fallbackLocale: Locale('en', ''),
       startLocale: null,
       child: CookApp()));
