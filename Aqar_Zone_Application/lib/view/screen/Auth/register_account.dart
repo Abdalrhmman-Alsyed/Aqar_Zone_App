@@ -1,9 +1,9 @@
 import 'package:aqar_zone_application/view/screen/Auth/confirm_number.dart';
-import 'package:aqar_zone_application/view/widget/button_widght_scafold_message.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/static/app_colors.dart';
+import '../../widget/password_field_widght.dart';
 import '../../widget/rich_text_widght.dart';
 import '../../widget/text_field_widght.dart';
 
@@ -26,8 +26,17 @@ String selectedCode = '+963';
 
 class _AgreementScreenState extends State<RegisterAccount> {
   bool isChecked = false;
-  TextEditingController phone = TextEditingController();
+
+  final GlobalKey<FormState> passwordFormKey = GlobalKey<FormState>();
   final GlobalKey<FormState> phoneFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> userNameFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> emailFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> confPasswordFormKey = GlobalKey<FormState>();
+  TextEditingController password = TextEditingController();
+  TextEditingController confPassword = TextEditingController();
+  TextEditingController phone = TextEditingController();
+  TextEditingController userName = TextEditingController();
+  TextEditingController email = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +58,7 @@ class _AgreementScreenState extends State<RegisterAccount> {
                 width: 500,
                 fit: BoxFit.contain,
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               Text(
                 'create_an_account_using_mobile_number'.tr(),
                 style: const TextStyle(
@@ -58,6 +67,20 @@ class _AgreementScreenState extends State<RegisterAccount> {
                 ),
               ),
               const SizedBox(height: 30),
+              TextFieldWidght(
+                text: 'enter_user_name'.tr(),
+                keyboard: TextInputType.text,
+                textEditingController: userName,
+                formKey: userNameFormKey,
+              ),
+              const SizedBox(height: 20),
+              TextFieldWidght(
+                text: 'enter_email'.tr(),
+                keyboard: TextInputType.emailAddress,
+                textEditingController: email,
+                formKey: emailFormKey,
+              ),
+              const SizedBox(height: 20),
               Row(
                 children: [
                   Container(
@@ -95,7 +118,19 @@ class _AgreementScreenState extends State<RegisterAccount> {
                   ),
                 ],
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
+              PasswordFieldWight(
+                text: 'enter_the_password'.tr(),
+                textEditingController: password,
+                formKey: passwordFormKey,
+              ),
+              const SizedBox(height: 20),
+              PasswordFieldWight(
+                text: 'enter_the_password'.tr(),
+                textEditingController: confPassword,
+                formKey: confPasswordFormKey,
+              ),
+              const SizedBox(height: 20),
               RichTextWidght(
                 text1: "By_clicking_'Ok',_you_agree_to_our".tr(),
                 text2: "Terms".tr(),
@@ -126,11 +161,38 @@ class _AgreementScreenState extends State<RegisterAccount> {
               const SizedBox(height: 16),
               SizedBox(
                 width: double.infinity,
-                child: ButtonWidghtScafoldMessage(
-                  nextPage: const ConfirmNumber(),
-                  isChecked: isChecked,
-                  theMessage: "successfully".tr(),
-                  formKeys: [phoneFormKey],
+                child: ElevatedButton(
+                  onPressed: () {
+                    if (userNameFormKey.currentState!.validate() &&
+                        emailFormKey.currentState!.validate() &&
+                        phoneFormKey.currentState!.validate() &&
+                        passwordFormKey.currentState!.validate() &&
+                        confPasswordFormKey.currentState!.validate() &&
+                        isChecked) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ConfirmNumber()),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                            content:
+                                Text("الرجاء تعبئة جميع الحقول بشكل صحيح")),
+                      );
+                    }
+
+                    if (password.text != confPassword.text) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("كلمتا المرور غير متطابقتين")),
+                      );
+                      return;
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.blue,
+                  ),
+                  child: Text("تسجيل الحساب".tr()),
                 ),
               ),
             ],

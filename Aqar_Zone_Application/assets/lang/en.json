@@ -1,7 +1,7 @@
 {
   "login_to_aqar_zone": "Login to Aqar Zone",
   "enter_the_number_phone": "Mobile Number",
-  "enter_the_password": "Mobile Number",
+  "enter_the_password": "Enter the password",
   "login": "Login",
   "create_an_account_using_mobile": "Create an account using mobile",
   "skip_and_continue_as_guest": "Skip and continue as guest",
@@ -26,7 +26,8 @@
   "empty_field_error": "Please enter the number",
   "password_required": "Please enter the password",
   "password_too_short": "Password must be more than 3 characters",
-  "password_hint": "Password"
+  "password_hint": "Password",
+  "enter_user_name": "Enter Username "
 }
 
 

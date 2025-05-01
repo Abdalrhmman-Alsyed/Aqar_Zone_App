@@ -1,9 +1,8 @@
-import 'package:aqar_zone_application/view/screen/Auth/login_screen.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+
 import '../../../core/static/app_colors.dart';
 import '../../widget/app_loading_widght.dart';
-import 'change_lang.dart';
+import 'onboarding.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -18,7 +17,7 @@ class _SplashPageState extends State<SplashScreen> {
     super.initState();
     Future.delayed(const Duration(seconds: 6), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => const LoginScreen(),
+        builder: (context) => const OnboardingScreen(),
       ));
     });
   }
