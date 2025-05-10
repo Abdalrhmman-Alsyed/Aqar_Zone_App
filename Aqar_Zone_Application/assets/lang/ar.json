@@ -26,5 +26,19 @@
   "empty_field_error": "يرجى إدخال الرقم",
   "password_required": "يرجى إدخال كلمة المرور",
   "password_too_short": "يجب أن تحتوي كلمة المرور على أكثر من 3 أحرف",
-  "password_hint": "كلمة المرور"
+  "password_hint": "كلمة المرور",
+  "enter_user_name": "أدخل اسم المستخدم",
+  "Welcome_to_Aqar_Zone": "مرحبًا بك في عقار زون",
+  "Discover_properties_easily_and_conveniently_in_your_area": "اكتشف العقارات بسهولة وراحة في منطقتك",
+  "Easy search": "بحث سهل",
+  "Search_using_smart_filters_according_to_your_desire": "ابحث باستخدام الفلاتر الذكية حسب رغبتك",
+  "Direct_contact": "تواصل مباشر",
+  "Contact_the_owner_directly_without_an_intermediary": "تواصل مع المالك مباشرة بدون وسيط",
+  "skip": "تخطي",
+  "Start Now": "ابدأ الآن",
+  "Next": "التالي",
+  "Passwords_do_not_match": "كلمتا المرور غير متطابقتين",
+  "Please_accept_the_terms": "الرجاء الموافقة على الشروط والأحكام",
+  "Please_fill_all_fields_correctly": "الرجاء تعبئة جميع الحقول بشكل صحيح",
+  "register_account": "تسجيل الحساب"
 }

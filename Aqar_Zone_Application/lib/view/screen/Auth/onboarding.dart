@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/static/app_colors.dart';
@@ -17,18 +18,18 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   final List<Map<String, String>> _pages = [
     {
       "image": "images/AqarZoneBlue1.png",
-      "title": "مرحبا بك في عقار زون",
-      "desc": "اكتشف العقارات بسهولة ويسر في منطقتك",
+      "title": "Welcome_to_Aqar_Zone".tr(),
+      "desc": "Discover_properties_easily_and_conveniently_in_your_area".tr(),
     },
     {
       "image": "images/AqarZoneBlue1.png",
-      "title": "سهولة البحث",
-      "desc": "ابحث باستخدام الفلاتر الذكية حسب رغبتك",
+      "title": "Easy search".tr(),
+      "desc": "Search_using_smart_filters_according_to_your_desire".tr(),
     },
     {
       "image": "images/AqarZoneBlue1.png",
-      "title": "تواصل مباشر",
-      "desc": "تواصل مع المالك مباشرة دون وسيط",
+      "title": "Direct_contact".tr(),
+      "desc": "Contact_the_owner_directly_without_an_intermediary".tr(),
     },
   ];
 
@@ -61,13 +62,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         Image.asset(data["image"]!, height: 250),
         const SizedBox(height: 40),
         Text(
-          data["title"]!,
+          data["title"]!.tr(),
           style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 20),
         Text(
-          data["desc"]!,
+          data["desc"]!.tr(),
           style: const TextStyle(fontSize: 16, color: Colors.grey),
           textAlign: TextAlign.center,
         ),
@@ -123,8 +124,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             left: 24,
             child: TextButton(
               onPressed: _skipToLast,
-              child: const Text(
-                "تخطي",
+              child: Text(
+                "skip".tr(),
                 style: TextStyle(fontSize: 16, color: AppColors.gold),
               ),
             ),
@@ -143,7 +144,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               ),
               child: Text(
-                _currentPage == _pages.length - 1 ? "ابدأ الآن" : "التالي",
+                _currentPage == _pages.length - 1
+                    ? "Start Now".tr()
+                    : "Next".tr(),
                 style: const TextStyle(fontSize: 16, color: AppColors.gold),
               ),
             ),

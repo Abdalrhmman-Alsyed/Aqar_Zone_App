@@ -135,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               TextButton.icon(
                 onPressed: () {},
-                icon: const Icon(Icons.arrow_back),
+                icon: Icon(Icons.arrow_back),
                 label: Text('skip_and_continue_as_guest'.tr()),
               ),
             ],

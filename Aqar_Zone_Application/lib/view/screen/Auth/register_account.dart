@@ -11,7 +11,7 @@ class RegisterAccount extends StatefulWidget {
   const RegisterAccount({Key? key}) : super(key: key);
 
   @override
-  State<RegisterAccount> createState() => _AgreementScreenState();
+  State<RegisterAccount> createState() => _RegisterAccountState();
 }
 
 final List<Map<String, String>> countries = [
@@ -24,7 +24,7 @@ final List<Map<String, String>> countries = [
 
 String selectedCode = '+963';
 
-class _AgreementScreenState extends State<RegisterAccount> {
+class _RegisterAccountState extends State<RegisterAccount> {
   bool isChecked = false;
 
   final GlobalKey<FormState> passwordFormKey = GlobalKey<FormState>();
@@ -32,11 +32,11 @@ class _AgreementScreenState extends State<RegisterAccount> {
   final GlobalKey<FormState> userNameFormKey = GlobalKey<FormState>();
   final GlobalKey<FormState> emailFormKey = GlobalKey<FormState>();
   final GlobalKey<FormState> confPasswordFormKey = GlobalKey<FormState>();
-  TextEditingController password = TextEditingController();
-  TextEditingController confPassword = TextEditingController();
-  TextEditingController phone = TextEditingController();
-  TextEditingController userName = TextEditingController();
-  TextEditingController email = TextEditingController();
+  final TextEditingController password = TextEditingController();
+  final TextEditingController confPassword = TextEditingController();
+  final TextEditingController phone = TextEditingController();
+  final TextEditingController userName = TextEditingController();
+  final TextEditingController email = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -140,7 +140,6 @@ class _AgreementScreenState extends State<RegisterAccount> {
               ),
               const SizedBox(height: 10),
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Checkbox(
                     value: isChecked,
@@ -152,9 +151,11 @@ class _AgreementScreenState extends State<RegisterAccount> {
                     activeColor: AppColors.blue,
                   ),
                   const SizedBox(width: 2),
-                  Text(
-                    "I_agree-to_the_terms_and_conditions".tr(),
-                    style: const TextStyle(fontSize: 16),
+                  Expanded(
+                    child: Text(
+                      "I_agree-to_the_terms_and_conditions".tr(),
+                      style: const TextStyle(fontSize: 16),
+                    ),
                   ),
                 ],
               ),
@@ -163,36 +164,58 @@ class _AgreementScreenState extends State<RegisterAccount> {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
+                    if (password.text != confPassword.text) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text("Passwords_do_not_match".tr()),
+                          backgroundColor: AppColors.red,
+                        ),
+                      );
+                      return;
+                    }
+
+                    if (!isChecked) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text("Please_accept_the_terms".tr()),
+                          backgroundColor: AppColors.red,
+                        ),
+                      );
+                      return;
+                    }
+
                     if (userNameFormKey.currentState!.validate() &&
                         emailFormKey.currentState!.validate() &&
                         phoneFormKey.currentState!.validate() &&
                         passwordFormKey.currentState!.validate() &&
-                        confPasswordFormKey.currentState!.validate() &&
-                        isChecked) {
+                        confPasswordFormKey.currentState!.validate()) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const ConfirmNumber()),
+                          builder: (context) => const ConfirmNumber(),
+                        ),
+                      );
+
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text("successfully".tr()),
+                          backgroundColor: AppColors.green,
+                        ),
                       );
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                            content:
-                                Text("الرجاء تعبئة جميع الحقول بشكل صحيح")),
+                          content:
+                              Text("Please_fill_all_fields_correctly".tr()),
+                          backgroundColor: AppColors.red,
+                        ),
                       );
-                    }
-
-                    if (password.text != confPassword.text) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text("كلمتا المرور غير متطابقتين")),
-                      );
-                      return;
                     }
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.blue,
                   ),
-                  child: Text("تسجيل الحساب".tr()),
+                  child: Text("register_account".tr()),
                 ),
               ),
             ],
