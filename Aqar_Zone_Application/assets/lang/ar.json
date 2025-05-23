@@ -40,5 +40,19 @@
   "Passwords_do_not_match": "كلمتا المرور غير متطابقتين",
   "Please_accept_the_terms": "الرجاء الموافقة على الشروط والأحكام",
   "Please_fill_all_fields_correctly": "الرجاء تعبئة جميع الحقول بشكل صحيح",
-  "register_account": "تسجيل الحساب"
+  "register_account": "تسجيل الحساب",
+  "Language": "اللغة",
+  "Currency": "العملة",
+  "Login": "تسجيل الدخول",
+  "Help": "مساعدة",
+  "Contact Us": "اتصل بنا",
+  "Privacy Policy": "سياسة الخصوصية",
+  "Brokers": "الوسطاء",
+  "Projects in progress": "المشاريع قيد التنفيذ",
+  "Services": "الخدمات",
+  "Blogs": "المدونات",
+  "Invite Friends": "دعوة الأصدقاء",
+  "My_Profile": "ملفي الشخصي",
+  "Support": "الدعم",
+  "aqar_zone": "عقار زون"
 }

@@ -40,7 +40,21 @@
   "Passwords_do_not_match": "Passwords do not match",
   "Please_accept_the_terms": "Please accept the terms and conditions",
   "Please_fill_all_fields_correctly": "Please fill all fields correctly",
-  "register_account": "Register Account"
+  "register_account": "Register Account",
+  "Language": "Language",
+  "Currency": "Currency",
+  "Login": "Login",
+  "Help": "Help",
+  "Contact Us": "Contact Us",
+  "Privacy Policy": "Privacy Policy",
+  "Brokers": "Brokers",
+  "Projects in progress": "Projects in progress",
+  "Services": "Services",
+  "Blogs": "Blogs",
+  "Invite Friends": "Invite Friends",
+  "My_Profile": "My Profile",
+  "Support": "Support",
+  "aqar_zone": "aqar zone"
 }
 
 
