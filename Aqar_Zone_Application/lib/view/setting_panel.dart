@@ -43,7 +43,7 @@ class SettingPanel extends StatelessWidget {
           ],
         ),
       ),
-      body: Center(child: Text('KeyFinder'.tr())),
+      body: Center(child: Text('aqar_zone'.tr())),
     );
   }
 
