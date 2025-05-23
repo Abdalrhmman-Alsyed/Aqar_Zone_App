@@ -1,8 +1,13 @@
+import 'package:aqar_zone_application/view/screen/Auth/login_screen.dart';
 import 'package:aqar_zone_application/view/screen/home_screen.dart';
+import 'package:aqar_zone_application/view/screen/setting/change_language.dart';
+import 'package:aqar_zone_application/view/screen/setting/contact_us.dart';
+import 'package:aqar_zone_application/view/screen/setting/help.dart';
+import 'package:aqar_zone_application/view/screen/setting/privacy_policy.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../core/static/app_colors.dart';
+import '../../../core/static/app_colors.dart';
 
 class SettingPanel extends StatelessWidget {
   @override
@@ -14,27 +19,24 @@ class SettingPanel extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: [
             DrawerHeader(
-              decoration: BoxDecoration(color: AppColors.gold),
+              decoration: BoxDecoration(color: AppColors.blue),
               child: Image.asset('images/AqarZoneBlue1.png'),
             ),
             _buildSectionTitle("My_Profile".tr()),
             _buildListItem(
-                context, Icons.language, 'Language'.tr(), HomeScreen()),
+                context, Icons.language, 'Language'.tr(), ChangeLanguage()),
             _buildListItem(
                 context, Icons.attach_money, 'Currency'.tr(), HomeScreen()),
-            _buildListItem(context, Icons.login, 'Login'.tr(), HomeScreen()),
+            _buildListItem(context, Icons.login, 'Login'.tr(), LoginScreen()),
             _buildSectionTitle("Support".tr()),
+            _buildListItem(context, Icons.help_outline, 'Help'.tr(), Help()),
             _buildListItem(
-                context, Icons.help_outline, 'Help'.tr(), HomeScreen()),
-            _buildListItem(
-                context, Icons.phone, 'Contact Us'.tr(), HomeScreen()),
+                context, Icons.phone, 'Contact Us'.tr(), ContactUsPage()),
             _buildListItem(context, Icons.privacy_tip, 'Privacy Policy'.tr(),
-                HomeScreen()),
+                PrivacyPolicyPage()),
             Divider(),
             _buildListItem(
-                context, Icons.business, 'Brokers'.tr(), HomeScreen()),
-            _buildListItem(context, Icons.work_outline,
-                'Projects in progress'.tr(), HomeScreen()),
+                context, Icons.business, 'My Favorites'.tr(), HomeScreen()),
             _buildListItem(context, Icons.build, 'Services'.tr(), HomeScreen()),
             _buildListItem(
                 context, Icons.article_outlined, 'Blogs'.tr(), HomeScreen()),
@@ -50,7 +52,7 @@ class SettingPanel extends StatelessWidget {
   Widget _buildSectionTitle(String title) {
     return Container(
       padding: const EdgeInsets.all(12.0),
-      color: AppColors.gold,
+      color: AppColors.gray,
       child: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
     );
   }
