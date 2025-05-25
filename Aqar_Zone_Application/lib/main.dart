@@ -1,4 +1,4 @@
-import 'package:aqar_zone_application/view/screen/setting/setting_panel.dart';
+import 'package:aqar_zone_application/view/screen/home_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +23,7 @@ class CookApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      home: SettingPanel(),
+      home: HomeScreen(),
     );
   }
 }
